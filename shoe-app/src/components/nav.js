@@ -3,9 +3,9 @@
 export const Nav = () => {
   return (
 
-    <section class="relative mx-auto">
-      <div class="fixed flex-wrap place-items-center h-screen">
-        <nav class="flex justify-between bg-white text-black text-white w-screen">
+    <section class="relative mx-auto z-10">
+      <div class="flex-wrap place-items-center">
+        <nav class="flex justify-between bg-white text-black w-screen">
           <div class="px-5 xl:px-12 py-6 flex w-full items-center">
             <a class="text-2xl font-bold font-heading" href="#">
               Showee
