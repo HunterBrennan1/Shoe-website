@@ -7,3 +7,10 @@
 * {
   font-family: 'Oswald', sans-serif;
 }
+
+
+@media screen and (max-width:1023px){
+  .hero-img{
+    display:none;
+  }
+}
