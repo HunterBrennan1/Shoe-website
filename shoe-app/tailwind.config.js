@@ -3,6 +3,9 @@ module.exports = {
   content: ["./src/**/*.{html,js}"],
   theme: {
     extend: {
+      fontFamily: {
+        oswald: ['Oswald', 'sans-serif']
+      },
       colors: {
         'hero-color': "#dcdedd",
         'teal-main': "#1a3639",

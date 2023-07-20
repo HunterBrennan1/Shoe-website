@@ -9,8 +9,8 @@ export const Nav = () => {
           <div class="px-5 xl:px-12 py-6 flex w-full items-center">
             <div className="flex gap-3 align-center ">
               <img className="w-13 h-14 rounded-full border-4 border-yellow-main b " src={Logo}></img>
-              <a class="text-2xl font-bold font-heading relative top-2 " href="#">
-                ShoeVibe
+              <a class="text-2xl font-bold italic font-heading relative top-2 " href="#">
+                StrideGear
               </a>
             </div>
 
