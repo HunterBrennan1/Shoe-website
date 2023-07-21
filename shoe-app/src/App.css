@@ -13,4 +13,13 @@
   .hero-img{
     display:none;
   }
+  .info-blocks{
+    flex-direction: column;
+  }
+}
+
+@media screen and (max-width:770px){
+  .info_box{
+    flex-direction: column;
+  }
 }

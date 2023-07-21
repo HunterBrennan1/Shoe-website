@@ -3,6 +3,7 @@ import './App.css';
 import Nav from './components/nav';
 import Hero from './components/hero';
 import Main from './components/main';
+import Video from './components/video';
 
 
 
@@ -12,6 +13,7 @@ function App() {
       <Nav />
       <Hero />
       <Main />
+      <Video />
     </div>
   );
 }
