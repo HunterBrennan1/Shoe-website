@@ -8,6 +8,12 @@
   font-family: 'Oswald', sans-serif;
 }
 
+.video_title{
+  top:50%;
+  padding-left:10%;
+  padding-right:10%;
+}
+
 
 @media screen and (max-width:1023px){
   .hero-img{
@@ -15,6 +21,10 @@
   }
   .info-blocks{
     flex-direction: column;
+  }
+
+  .video_title{
+    font-size: 25px;
   }
 }
 
