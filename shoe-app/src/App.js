@@ -4,7 +4,7 @@ import Nav from './components/nav';
 import Hero from './components/hero';
 import Main from './components/main';
 import Video from './components/video';
-
+import Shop from './components/shop';
 
 
 function App() {
@@ -14,6 +14,7 @@ function App() {
       <Hero />
       <Main />
       <Video />
+      <Shop />
     </div>
   );
 }
