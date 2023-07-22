@@ -4,7 +4,7 @@
 export const Main = () => {
   return (
     <section>
-      <div className="info-blocks w-full h-full bg-black-main flex  justify-center ">
+      {/* <div className="info-blocks w-full h-full bg-black-main flex  justify-center ">
         <div className="w-full h-96 bg-black-main p-5 flex  justify-center align-center  text-center ">
           <div>
             <h2 className="w-96 text-center text-yellow-main text-3xl mb-10">Explore Our Product Range</h2>
@@ -20,7 +20,7 @@ export const Main = () => {
         </div>
 
 
-      </div>
+      </div> */}
     </section>
   )
 }

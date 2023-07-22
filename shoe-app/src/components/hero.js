@@ -18,7 +18,7 @@ export const Hero = () => {
 
         <img className=" hero-img w-2/4 lg:visible md:invisible sm:invisible relative flex justify-center m-0" src={Heroimg}></img>
       </div>
-      <div className="flex flex-row w-full justify-evenly ">
+      {/* <div className="flex flex-row w-full justify-evenly ">
         <div className="flex flex-col justify-center  items-center text-center p-10">
           <div className=" flex w-14 h-14 bg-teal-main border-1  rounded-full shadow-2xl  justify-center inline-block align-middle">
             <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-8 h-8 relative top-3 stroke-white flex ">
@@ -69,7 +69,7 @@ export const Hero = () => {
           </div>
           <p className="mt-5">Customer Satisfaction</p>
         </div>
-      </div>
+      </div> */}
 
 
     </section>
