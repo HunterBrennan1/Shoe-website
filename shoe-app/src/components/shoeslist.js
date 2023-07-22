@@ -8,6 +8,11 @@ import Airforce07 from '../assets/imgs/shoes/airforce07-1.jpg';
 import airforce07lv8 from '../assets/imgs/shoes/airforce07lv8-1.jpg';
 import Bigkids1 from '../assets/imgs/shoes/bigkidsairforce-1.jpg';
 import Courtvision from '../assets/imgs/shoes/courtvision-1.jpg';
+import Ozweego from '../assets/imgs/shoes/originalsozweego-1.jpg';
+import Originalsstan from '../assets/imgs/shoes/originalsstan-1.jpg';
+import Essentialsznsored from '../assets/imgs/shoes/essentialsznsored.jpg';
+import Predatorfreak from '../assets/imgs/shoes/predatorfreak-1.jpg';
+import Samba from '../assets/imgs/shoes/samba-1.jpg';
 
 
 
@@ -71,6 +76,36 @@ export const items = [
     category: "Nike",
     price: "$85.00",
     image: Courtvision,
+  },
+  {
+    name: "Adidas Originals Ozweego Casual",
+    category: "Adidas",
+    price: "$120.00",
+    image: Ozweego,
+  },
+  {
+    name: "Adidas Originals Stan Smith Casual",
+    category: "Adidas",
+    price: "$100.00",
+    image: Originalsstan,
+  },
+  {
+    name: "Adidas Essentials Znsored low Casual",
+    category: "Adidas",
+    price: "$80.00",
+    image: Essentialsznsored,
+  },
+  {
+    name: "Adidas Predator Freak.3 Firm Ground",
+    category: "Adidas",
+    price: "$80.00",
+    image: Predatorfreak,
+  },
+  {
+    name: "Adidas Originals Samba Casual",
+    category: "Adidas",
+    price: "$100.00",
+    image: Samba,
   },
 
 ]
