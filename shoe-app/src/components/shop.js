@@ -25,6 +25,7 @@ export const Shop = () => {
     if (selectedFilters.length > 0) {
       let tempItems = selectedFilters.map((selectedCategory) => {
         let temp = items.filter((item) => item.category === selectedCategory)
+
         return temp;
       });
       setFilteredItems(tempItems.flat());
@@ -42,20 +43,19 @@ export const Shop = () => {
       <div>
       </div>
       <div className='search_filter_wrapper'>
-        <div className='search_filter_container'>
+        <div className='search_filter_container flex w-full'>
 
-          <div>
-
-          </div>
-
-          <div className='buttons_container_search flex justify-center flex-wrap w-full gap-10 shadow-lg bg-white '>
+          <div className='buttons_container_search flex flex-col justify-center sticky top-0 p-5 h-full w-1/5  shadow-lg bg-white '>
+            <div>
+              <h2>Brand</h2>
+            </div>
             {filters.map((category, idx) => (
-              <button onClick={() => handleFilterButtonClick(category)} className={`filter_button ${selectedFilters?.includes(category) ? "active" : ""}  bg-hero-color text-teal-main p-5 px-10 my-10 w-44 rounded-md shadow-lg font-bold cursor-pointer mt-10 flex-row hover:bg-teal-main hover:text-yellow-main`} key={`filters-${idx}`}>
+              <button onClick={() => handleFilterButtonClick(category)} className={`filter_button ${selectedFilters?.includes(category) ? "active" : ""}  bg-white text-teal-main  text-left  w-full  text-sm font-bold cursor-pointer mt-1 px-2  flex-row `} key={`filters-${idx}`}>
                 {category}
               </button>
             ))}
           </div>
-          <div className='item_container flex flex-wrap  gap-0 justify-center px-0 w-full mt-10 '>
+          <div className='item_container flex flex-wrap  gap-0 justify-center px-0 w-4/5 mt-10 '>
             {filteredItems.map((item, idx) => (
               <div key={`items-${idx}`} className="item flex flex-col p-5 w-80 min-w-1/5 hover:shadow-lg">
 
