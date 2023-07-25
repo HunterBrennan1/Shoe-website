@@ -4,6 +4,9 @@ import { items } from './shoeslist.js';;
 
 export const Shop = () => {
 
+  const [cartItems, setCartItems] = useState([]);
+
+
   const [selectedFilters, setSelectedFilters] = useState([]);
   const [filteredItems, setFilteredItems] = useState(items);
   let filters = ["Nike", "Adidas", "New Balance", "Puma"];
@@ -34,6 +37,10 @@ export const Shop = () => {
     }
   };
 
+  const handleAddToCart = (item) => {
+    setCartItems((prevCartItems) => [...prevCartItems, item]);
+  };
+
 
 
 
@@ -58,7 +65,7 @@ export const Shop = () => {
               <div key={`items-${idx}`} className="item  relative flex flex-col p-5 w-80 min-w-1/5 hover:shadow-lg">
 
                 <img className='item_img' src={item.image} alt=""></img>
-                <a className='text-center pt-1 absolute h-10 w-10 right-12 top-8 text-2xl text-teal-main bg-hero-color rounded-full hover:shadow-lg hover:border-2 hover:border-teal-main hover:pt-0 cursor-pointer'>+</a>
+                <a className='text-center pt-1 absolute h-10 w-10 right-12 top-8 text-2xl text-teal-main bg-hero-color rounded-full hover:shadow-lg hover:border-2 hover:border-teal-main hover:pt-0 cursor-pointer' onClick={() => handleAddToCart(item)}>+</a>
                 <a className='card_name text-2xl lg:text-lg md:text-sm sm:text-xs text-left cursor-pointer py-2 underline underline-offset-4 decoration-teal-main'>{item.name}</a>
                 <p className='text-sm'>{item.price}</p>
                 <div className='category_container'>
@@ -70,8 +77,17 @@ export const Shop = () => {
           </div>
         </div>
       </div>
+      <div className="cart_summary">
+        <h2>Cart Summary</h2>
+        <ul>
+          {cartItems.map((item, idx) => (
+            <li key={`cart-item-${idx}`}>{item.name}</li>
+          ))}
+        </ul>
+      </div>
     </section>
   )
 }
+// };
 
 export default Shop;
