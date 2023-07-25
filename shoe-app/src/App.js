@@ -13,7 +13,7 @@ function App() {
       <Nav />
       <Hero />
       <Main />
-      <Video />
+      {/* <Video /> */}
       <Shop />
     </div>
   );
