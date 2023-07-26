@@ -5,7 +5,7 @@ import { items } from './shoeslist.js';;
 export const Shop = () => {
 
   const [cartItems, setCartItems] = useState([]);
-
+  const [isModalOpen, setIsModalOpen] = useState(false);
 
   const [selectedFilters, setSelectedFilters] = useState([]);
   const [filteredItems, setFilteredItems] = useState(items);
@@ -45,6 +45,14 @@ export const Shop = () => {
     setCartItems((prevCartItems) => prevCartItems.filter((item) => item.id !== itemId));
   };
 
+  const handleButtonClick = () => {
+    setIsModalOpen(true);
+  };
+
+  const handleModalClose = () => {
+    setIsModalOpen(false);
+  };
+
   return (
 
     <section>
@@ -78,19 +86,36 @@ export const Shop = () => {
           </div>
         </div>
       </div>
-      <div className="cart_summary flex flex-col gap-2">
-        <h2>Cart Summary</h2>
-        <div>
-          <ul className='w-40 flex gap-5'>
-            {cartItems.map((item, idx) => (
-              <li className='flex flex-col gap-3 text-sm h-72 w-40' key={`cart-item-${idx}`}><img className="cart_item_img w-40" src={item.image} alt="" />
-                {item.name}
-                <button className='text-lg text-center bg-yellow-main text-teal-main w-40 rounded-md' onClick={() => handleRemoveFromCart(item.id)}>Remove from cart</button>
-              </li>
-            ))}
-          </ul>
-        </div>
+      <div>
+        <button className="show-modal-button relative bottom-0 right-0 z-9999 bg-teal-main rounded-full p-10 w-10 h-10" onClick={handleButtonClick}>
+          Show Content
+        </button>
+
+        {isModalOpen && (
+          <div className="modal-overlay h-full fixed top-0 right-0  z-10">
+            <div className="modal-content w-96 flex flex-col overflow-hidden flex-wrap shadow-2xl absolute top-0 right-0 h-max  bg-white z-10 p-5">
+              <div className="modal-inner overflow-y-auto">
+                <h2 className='text-2xl font-bold text-center mb-10 text-teal-main'>Shopping Cart</h2>
+                <button onClick={handleModalClose}>Close</button>
+                <div className="cart_summary flex flex-col gap-2">
+                  <div>
+                    <ul className='w-40 flex flex-col gap-5'>
+                      {cartItems.map((item, idx) => (
+                        <li className='flex flex-col gap-3 text-sm h-72 w-40' key={`cart-item-${idx}`}><img className="cart_item_img w-40" src={item.image} alt="" />
+                          {item.name}
+                          <button className='text-lg text-center bg-yellow-main text-teal-main w-40 rounded-md' onClick={() => handleRemoveFromCart(item.id)}>Remove from cart</button>
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+                </div>
+
+              </div>
+            </div>
+          </div>
+        )}
       </div>
+
     </section>
   )
 }
