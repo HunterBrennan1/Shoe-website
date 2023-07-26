@@ -41,8 +41,9 @@ export const Shop = () => {
     setCartItems((prevCartItems) => [...prevCartItems, item]);
   };
 
-
-
+  const handleRemoveFromCart = (itemId) => {
+    setCartItems((prevCartItems) => prevCartItems.filter((item) => item.id !== itemId));
+  };
 
   return (
 
@@ -77,13 +78,18 @@ export const Shop = () => {
           </div>
         </div>
       </div>
-      <div className="cart_summary">
+      <div className="cart_summary flex flex-col gap-2">
         <h2>Cart Summary</h2>
-        <ul>
-          {cartItems.map((item, idx) => (
-            <li key={`cart-item-${idx}`}>{item.name}</li>
-          ))}
-        </ul>
+        <div>
+          <ul>
+            {cartItems.map((item, idx) => (
+              <li className='flex flex-row gap-5' key={`cart-item-${idx}`}><img className="cart_item_img" src={item.image} alt="" />
+                {item.name}
+                <button className='text-2xl' onClick={() => handleRemoveFromCart(item.id)}>Remove from cart</button>
+              </li>
+            ))}
+          </ul>
+        </div>
       </div>
     </section>
   )
