@@ -1,6 +1,13 @@
 import Logo from "../assets/imgs/logoshoe1.png";
 
+
+
+
+
 export const Nav = () => {
+
+
+
   return (
 
     <section class="relative mx-auto z-10 shadow-md">

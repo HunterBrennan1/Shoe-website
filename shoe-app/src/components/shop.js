@@ -81,11 +81,11 @@ export const Shop = () => {
       <div className="cart_summary flex flex-col gap-2">
         <h2>Cart Summary</h2>
         <div>
-          <ul>
+          <ul className='w-40 flex gap-5'>
             {cartItems.map((item, idx) => (
-              <li className='flex flex-row gap-5' key={`cart-item-${idx}`}><img className="cart_item_img" src={item.image} alt="" />
+              <li className='flex flex-col gap-3 text-sm h-72 w-40' key={`cart-item-${idx}`}><img className="cart_item_img w-40" src={item.image} alt="" />
                 {item.name}
-                <button className='text-2xl' onClick={() => handleRemoveFromCart(item.id)}>Remove from cart</button>
+                <button className='text-lg text-center bg-yellow-main text-teal-main w-40 rounded-md' onClick={() => handleRemoveFromCart(item.id)}>Remove from cart</button>
               </li>
             ))}
           </ul>
