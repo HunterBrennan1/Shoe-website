@@ -15,12 +15,20 @@
 }
 
 .active{
-  background-color: #1a3639;
-  color:#e7d869;
+  text-decoration: underline;
+  text-decoration-thickness:3px ;
+  text-underline-offset: 10px;
+  text-decoration-color: #000;
+}
+
+.checkout_btn{
+  width:100% !important;
+  box-sizing: border-box;
 }
 
 .modal-content{
   overflow: hidden;
+  min-height: 100vh;
 }
 
 .modal-inner::-webkit-scrollbar {

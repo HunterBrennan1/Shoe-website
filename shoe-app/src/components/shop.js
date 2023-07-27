@@ -9,7 +9,10 @@ export const Shop = () => {
 
   const [selectedFilters, setSelectedFilters] = useState([]);
   const [filteredItems, setFilteredItems] = useState(items);
-  let filters = ["Nike", "Adidas", "New Balance", "Puma"];
+  let filters = ["Nike", "Adidas", "New Balance", "Puma", "Black"];
+
+
+  const [totalPrice, setTotalPrice] = useState(0);
 
   const handleFilterButtonClick = (selectedCategory) => {
     if (selectedFilters.includes(selectedCategory)) {
@@ -19,6 +22,13 @@ export const Shop = () => {
       setSelectedFilters([...selectedFilters, selectedCategory]);
     }
   };
+
+
+  // Finding total price for items
+  useEffect(() => {
+    const totalPrice = cartItems.reduce((acc, item) => acc + parseFloat(item.price), 0);
+    setTotalPrice(totalPrice);
+  }, [cartItems]);
 
   useEffect(() => {
     filterItems();
@@ -64,7 +74,7 @@ export const Shop = () => {
           <div className='buttons_container_search flex z-10 sticky top-0 flex-row justify-evenly gap-5 p-5  w-full  shadow-lg bg-white '>
 
             {filters.map((category, idx) => (
-              <button onClick={() => handleFilterButtonClick(category)} className={`filter_button ${selectedFilters?.includes(category) ? "active" : ""}  bg-yellow-main text-teal-main rounded-md  w-full justify-evenly text-sm font-bold cursor-pointer gap-5 mt-1 px-2 py-5 active:bg-teal-main `} key={`filters-${idx}`}>
+              <button onClick={() => handleFilterButtonClick(category)} className={`filter_button ${selectedFilters?.includes(category) ? "active" : ""}   text-teal-main rounded-md  w-full justify-evenly text-sm font-bold cursor-pointer gap-5 mt-1 px-2 py-5  `} key={`filters-${idx}`}>
                 {category}
               </button>
             ))}
@@ -100,10 +110,11 @@ export const Shop = () => {
                 <div className=''>
                   <h2 className='text-2xl font-bold text-center pt-9 mb-10 text-teal-main'>Shopping Cart</h2>
                   <button className='absolute top-5 right-10' onClick={handleModalClose}>Close</button>
+
                 </div>
                 <div className="cart_summary flex flex-col gap-2">
-                  <div className='flex justify-center'>
-                    <ul className='w-40 flex flex-col gap-5'>
+                  <div className='flex w-full justify-center'>
+                    <ul className='w-40 justify-center flex flex-col gap-5'>
                       {cartItems.map((item, idx) => (
                         <li className='flex flex-col gap-3 text-sm h-72 w-40' key={`cart-item-${idx}`}><img className="cart_item_img w-40" src={item.image} alt="" />
                           {item.name}<br></br>{item.price}
@@ -111,6 +122,12 @@ export const Shop = () => {
                         </li>
 
                       ))}
+                      <li className='w-full'>
+                        <button href="#" className=' checkout_btn bg-teal-main relative text-yellow-main w-60 text-center py-5 rounded-md'>Checkout!</button>
+                        <div className='total_price_container'>
+                          <p>Total Price:&#x24;{totalPrice.toFixed(2)}</p>
+                        </div>
+                      </li>
                     </ul>
                   </div>
                 </div>
