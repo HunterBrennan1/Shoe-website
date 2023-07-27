@@ -9,7 +9,7 @@ export const Shop = () => {
 
   const [selectedFilters, setSelectedFilters] = useState([]);
   const [filteredItems, setFilteredItems] = useState(items);
-  let filters = ["Nike", "Adidas", "New Balance", "Puma", "Black"];
+  let filters = ["Nike", "Adidas", "New Balance", "Puma", "Black", "White", "Blue", "Orange",];
 
 
   const [totalPrice, setTotalPrice] = useState(0);
@@ -30,6 +30,8 @@ export const Shop = () => {
     setTotalPrice(totalPrice);
   }, [cartItems]);
 
+
+  //filtering items based on category name ex:nike,adidas,puma,etc
   useEffect(() => {
     filterItems();
   }, [selectedFilters]);
@@ -47,6 +49,8 @@ export const Shop = () => {
     }
   };
 
+
+  //adds and removes items to cart
   const handleAddToCart = (item) => {
     setCartItems((prevCartItems) => [...prevCartItems, item]);
   };
@@ -55,6 +59,7 @@ export const Shop = () => {
     setCartItems((prevCartItems) => prevCartItems.filter((item) => item.id !== itemId));
   };
 
+  //modal popout function to see if its open or not
   const handleButtonClick = () => {
     setIsModalOpen(true);
   };
@@ -125,7 +130,7 @@ export const Shop = () => {
                       <li className='w-full'>
                         <button href="#" className=' checkout_btn bg-teal-main relative text-yellow-main w-60 text-center py-5 rounded-md'>Checkout!</button>
                         <div className='total_price_container'>
-                          <p>Total Price:&#x24;{totalPrice.toFixed(2)}</p>
+                          <p className='text-center mt-2'>Total Price:&#x24;{totalPrice.toFixed(2)}</p>
                         </div>
                       </li>
                     </ul>
