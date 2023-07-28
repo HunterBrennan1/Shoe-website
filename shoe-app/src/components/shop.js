@@ -1,10 +1,21 @@
 import React, { useEffect, useState } from 'react';
-import Checkout from './checkout.js';
+import { BrowserRouter as Router, Routes, Switch, Route, BrowserRouter } from 'react-router-dom';
+import { CartContext } from './cartcontext';
+import { Link } from 'react-router-dom';
+import Checkout from '../components/checkout';
+import Main from './main.js';
+import Nav from './nav.js';
+import Hero from './hero.js';
+import CheckoutPage from './checkoutpage.js';
 import { items } from './shoeslist.js';;
 
 
 
+
+
 export const Shop = () => {
+
+
 
   const [cartItems, setCartItems] = useState([]);
   const [isModalOpen, setIsModalOpen] = useState(false);
@@ -12,6 +23,8 @@ export const Shop = () => {
   const [selectedFilters, setSelectedFilters] = useState([]);
   const [filteredItems, setFilteredItems] = useState(items);
   let filters = ["Nike", "Adidas", "New Balance", "Puma", "Black", "White", "Blue", "Orange",];
+
+
 
 
   const [totalPrice, setTotalPrice] = useState(0);
@@ -70,9 +83,16 @@ export const Shop = () => {
     setIsModalOpen(false);
   };
 
+  console.log('cartItems:', cartItems);
+  console.log('totalPrice:', totalPrice);
+
   return (
 
     <section>
+
+      <Nav />
+      <Hero />
+      <Main />
       <div>
       </div>
       <div className='search_filter_wrapper'>
@@ -108,6 +128,7 @@ export const Shop = () => {
           <svg className='absolute w-10 left-4 bottom-4' xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="white">
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z" />
           </svg>
+
         </button>
 
         {isModalOpen && (
@@ -134,7 +155,7 @@ export const Shop = () => {
                         ))}
                         <li className='w-full'>
 
-                          <button href="/checkout" className=' checkout_btn bg-teal-main relative text-yellow-main w-60 text-center py-5 rounded-md'>Checkout!</button>
+                          <Link to="/checkout" className=' checkout_btn bg-teal-main relative text-yellow-main w-60 text-center py-5 rounded-md'>Checkout!</Link>
                           <div className='total_price_container'>
                             <p className='text-center mt-2'>Total Price:&#x24;{totalPrice.toFixed(2)}</p>
                           </div>
@@ -147,13 +168,14 @@ export const Shop = () => {
               </div>
 
             </div>
+
           </section>
         )}
       </div>
+    </section >
 
-    </section>
-  )
-}
+  );
+};
 
 
 export default Shop;

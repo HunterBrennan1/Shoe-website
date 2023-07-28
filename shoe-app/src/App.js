@@ -6,19 +6,20 @@ import Main from './components/main';
 import Video from './components/video';
 import Shop from './components/shop';
 import Checkout from './components/checkout';
-import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
+import { BrowserRouter as Router, Routes, Switch, Route, BrowserRouter } from 'react-router-dom';
 
 
 function App() {
+
   return (
-    <div className="App">
-      <Nav />
-      <Hero />
-      <Main />
-      <Video />
-      <Shop />
-      <Checkout />
-    </div>
+    <BrowserRouter>
+      <Routes>
+
+        <Route exact path="/" element={<Shop />} compontent={Shop}></Route>
+        <Route exact path="/checkout" element={<Checkout />} compontent={Checkout}></Route>
+
+      </Routes>
+    </BrowserRouter>
   );
 }
 
