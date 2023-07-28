@@ -6,6 +6,7 @@ import Main from './components/main';
 import Video from './components/video';
 import Shop from './components/shop';
 import Checkout from './components/checkout';
+import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 
 
 function App() {

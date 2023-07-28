@@ -1,12 +1,14 @@
 import Nav from "../components/nav";
+import React from "react";
 
 
-
-export const Checkout = ({ cartItems, totalPrice, handleRemoveFromCart }) => {
+const Checkout = ({ cartItems, totalPrice, handleRemoveFromCart }) => {
+  if (!cartItems || cartItems.length === 0) {
+    return <p>No items in the cart.</p>;
+  }
   return (
     <section>
-      <Nav />
-
+      {/* <Nav /> */}
       <div className="checkout-container">
         <h2 className="text-2xl font-bold text-center pt-9 mb-10 text-teal-main">Checkout</h2>
         <ul className="checkout-list">
@@ -21,10 +23,10 @@ export const Checkout = ({ cartItems, totalPrice, handleRemoveFromCart }) => {
         <div className="total_price_container">
           <p className="text-center mt-2">Total Price:&#x24;{totalPrice.toFixed(2)}</p>
         </div>
+        {/* Add the logic for processing the checkout and payment here */}
       </div>
     </section>
-
-  )
-}
+  );
+};
 
 export default Checkout;

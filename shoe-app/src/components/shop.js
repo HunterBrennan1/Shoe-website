@@ -1,5 +1,7 @@
 import React, { useEffect, useState } from 'react';
+import Checkout from './checkout.js';
 import { items } from './shoeslist.js';;
+
 
 
 export const Shop = () => {
@@ -14,12 +16,14 @@ export const Shop = () => {
 
   const [totalPrice, setTotalPrice] = useState(0);
 
+  //button filtering function
   const handleFilterButtonClick = (selectedCategory) => {
     if (selectedFilters.includes(selectedCategory)) {
-      let filters = selectedFilters.filter((el) => el !== selectedCategory);
-      setSelectedFilters(filters);
+      setSelectedFilters((prevSelectedFilters) =>
+        prevSelectedFilters.filter((el) => el !== selectedCategory)
+      );
     } else {
-      setSelectedFilters([...selectedFilters, selectedCategory]);
+      setSelectedFilters((prevSelectedFilters) => [...prevSelectedFilters, selectedCategory]);
     }
   };
 
@@ -34,16 +38,14 @@ export const Shop = () => {
   //filtering items based on category name ex:nike,adidas,puma,etc
   useEffect(() => {
     filterItems();
-  }, [selectedFilters]);
+  }, [selectedFilters, items]);
 
   const filterItems = () => {
     if (selectedFilters.length > 0) {
-      let tempItems = selectedFilters.map((selectedCategory) => {
-        let temp = items.filter((item) => item.category === selectedCategory)
-
-        return temp;
+      let tempItems = selectedFilters.flatMap((selectedCategory) => {
+        return items.filter((item) => item.category === selectedCategory);
       });
-      setFilteredItems(tempItems.flat());
+      setFilteredItems(tempItems);
     } else {
       setFilteredItems([...items]);
     }
@@ -109,43 +111,49 @@ export const Shop = () => {
         </button>
 
         {isModalOpen && (
-          <div className="modal-overlay h-full fixed top-0 right-0  z-10">
-            <div className="modal-content w-96 flex flex-col overflow-hidden flex-wrap shadow-2xl absolute top-0 right-0 h-max  bg-white z-10 p-5">
-              <div className="modal-inner overflow-y-auto">
-                <div className=''>
-                  <h2 className='text-2xl font-bold text-center pt-9 mb-10 text-teal-main'>Shopping Cart</h2>
-                  <button className='absolute top-5 right-10' onClick={handleModalClose}>Close</button>
+          <section>
+            <Checkout cartItems={cartItems} totalPrice={totalPrice} handleRemoveFromCart={handleRemoveFromCart} />
 
-                </div>
-                <div className="cart_summary flex flex-col gap-2">
-                  <div className='flex w-full justify-center'>
-                    <ul className='w-40 justify-center flex flex-col gap-5'>
-                      {cartItems.map((item, idx) => (
-                        <li className='flex flex-col gap-3 text-sm h-72 w-40' key={`cart-item-${idx}`}><img className="cart_item_img w-40" src={item.image} alt="" />
-                          {item.name}<br></br>{item.price}
-                          <button className='text-lg text-center bg-yellow-main text-teal-main w-40 rounded-md' onClick={() => handleRemoveFromCart(item.id)}>Remove from cart</button>
-                        </li>
+            <div className="modal-overlay h-full fixed top-0 right-0  z-10">
+              <div className="modal-content w-96 flex flex-col overflow-hidden flex-wrap shadow-2xl absolute top-0 right-0 h-max  bg-white z-10 p-5">
+                <div className="modal-inner overflow-y-auto">
+                  <div className=''>
+                    <h2 className='text-2xl font-bold text-center pt-9 mb-10 text-teal-main'>Shopping Cart</h2>
+                    <button className='absolute top-5 right-10' onClick={handleModalClose}>Close</button>
 
-                      ))}
-                      <li className='w-full'>
-                        <button href="#" className=' checkout_btn bg-teal-main relative text-yellow-main w-60 text-center py-5 rounded-md'>Checkout!</button>
-                        <div className='total_price_container'>
-                          <p className='text-center mt-2'>Total Price:&#x24;{totalPrice.toFixed(2)}</p>
-                        </div>
-                      </li>
-                    </ul>
                   </div>
-                </div>
+                  <div className="cart_summary flex flex-col gap-2">
+                    <div className='flex w-full justify-center'>
+                      <ul className='w-40 justify-center flex flex-col gap-5'>
+                        {cartItems.map((item, idx) => (
+                          <li className='flex flex-col gap-3 text-sm h-72 w-40' key={`cart-item-${idx}`}><img className="cart_item_img w-40" src={item.image} alt="" />
+                            {item.name}<br></br>{item.price}
+                            <button className='text-lg text-center bg-yellow-main text-teal-main w-40 rounded-md' onClick={() => handleRemoveFromCart(item.id)}>Remove from cart</button>
+                          </li>
 
+                        ))}
+                        <li className='w-full'>
+
+                          <button href="/checkout" className=' checkout_btn bg-teal-main relative text-yellow-main w-60 text-center py-5 rounded-md'>Checkout!</button>
+                          <div className='total_price_container'>
+                            <p className='text-center mt-2'>Total Price:&#x24;{totalPrice.toFixed(2)}</p>
+                          </div>
+                        </li>
+                      </ul>
+                    </div>
+                  </div>
+
+                </div>
               </div>
+
             </div>
-          </div>
+          </section>
         )}
       </div>
 
     </section>
   )
 }
-// };
+
 
 export default Shop;
