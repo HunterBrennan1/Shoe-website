@@ -16,7 +16,7 @@ const App = () => {
   return (
     <Router>
       <Routes>
-        {/* Define the Shop route */}
+        /* Define the Shop route */
         <Route path="/" element={<Shop
           cartItems={cartItems}
           setCartItems={setCartItems}
@@ -25,7 +25,7 @@ const App = () => {
           handleRemoveFromCart={handleRemoveFromCart}
         />} />
 
-        {/* Define the Checkout route */}
+        /* Define the Checkout route */
         <Route path="/checkout" element={<Checkout
           cartItems={cartItems}
           totalPrice={totalPrice}

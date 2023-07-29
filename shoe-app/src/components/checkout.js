@@ -8,6 +8,8 @@ const Checkout = () => {
   const { cartItems, totalPrice, handleRemoveFromCart } = useCartContext();
   // const { cartItems } = useCartContext();
 
+
+
   console.log('Received cartItems:', cartItems);
   console.log('Received totalPrice:', totalPrice);
 

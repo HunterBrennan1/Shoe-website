@@ -1,7 +1,5 @@
 import React, { useEffect, useState } from 'react';
 import { useCartContext } from './cartcontext';
-import { BrowserRouter as Router, Routes, Switch, Route, BrowserRouter } from 'react-router-dom';
-import { CartContext } from './cartcontext';
 import { Link } from 'react-router-dom';
 import Checkout from '../components/checkout';
 import Main from './main.js';
@@ -144,18 +142,18 @@ export const Shop = () => {
 
                   </div>
                   <div className="cart_summary flex flex-col gap-2">
-                    <div className='flex w-full justify-center'>
-                      <ul className='w-40 justify-center flex flex-col gap-5'>
+                    <div className='flex w-full justify-left'>
+                      <ul className='w-full justify-center flex flex-col gap-5'>
                         {cartItems.map((item, idx) => (
-                          <li className='flex flex-col gap-3 text-sm h-72 w-40' key={`cart-item-${idx}`}><img className="cart_item_img w-40" src={item.image} alt="" />
-                            {item.name}<br></br>{item.price}
-                            <button className='text-lg text-center bg-yellow-main text-teal-main w-40 rounded-md' onClick={() => handleRemoveFromCart(item.id)}>Remove from cart</button>
+                          <li className='flex flex-row gap-3 text-sm h-72 w-full' key={`cart-item-${idx}`}><img className="cart_item_img w-40" src={item.image} alt="" />
+                            <div className='flex flex-col'>{item.name}<br></br>{item.price}<button className='text-lg text-center bg-yellow-main text-teal-main h-20 w-full rounded-md' onClick={() => handleRemoveFromCart(item.id)}>Remove from cart</button></div>
+
                           </li>
 
                         ))}
                         <li className='w-full'>
 
-                          <Link to="/checkout" className=' checkout_btn bg-teal-main relative text-yellow-main w-60 text-center py-5 rounded-md'>Checkout!</Link>
+                          <Link to="/checkout" className=' checkout_btn bg-teal-main relative text-yellow-main w-96 text-center py-5 rounded-md'>Checkout!</Link>
                           <div className='total_price_container'>
                             <p className='text-center mt-2'>Total Price:&#x24;{totalPrice.toFixed(2)}</p>
                           </div>
