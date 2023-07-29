@@ -1,26 +1,39 @@
 
-import './App.css';
-import Nav from './components/nav';
-import Hero from './components/hero';
-import Main from './components/main';
-import Video from './components/video';
+import React, { useEffect, useState } from 'react';
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import Shop from './components/shop';
 import Checkout from './components/checkout';
-import { BrowserRouter as Router, Routes, Switch, Route, BrowserRouter } from 'react-router-dom';
+import './App.css';
 
+const App = () => {
+  const [cartItems, setCartItems] = useState([]);
+  const [totalPrice, setTotalPrice] = useState(0);
 
-function App() {
+  const handleRemoveFromCart = (itemId) => {
+    setCartItems((prevCartItems) => prevCartItems.filter((item) => item.id !== itemId));
+  };
 
   return (
-    <BrowserRouter>
+    <Router>
       <Routes>
+        {/* Define the Shop route */}
+        <Route path="/" element={<Shop
+          cartItems={cartItems}
+          setCartItems={setCartItems}
+          totalPrice={totalPrice}
+          setTotalPrice={setTotalPrice}
+          handleRemoveFromCart={handleRemoveFromCart}
+        />} />
 
-        <Route exact path="/" element={<Shop />} compontent={Shop}></Route>
-        <Route exact path="/checkout" element={<Checkout />} compontent={Checkout}></Route>
-
+        {/* Define the Checkout route */}
+        <Route path="/checkout" element={<Checkout
+          cartItems={cartItems}
+          totalPrice={totalPrice}
+          handleRemoveFromCart={handleRemoveFromCart}
+        />} />
       </Routes>
-    </BrowserRouter>
+    </Router>
   );
-}
+};
 
 export default App;

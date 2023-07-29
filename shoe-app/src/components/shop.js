@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import { useCartContext } from './cartcontext';
 import { BrowserRouter as Router, Routes, Switch, Route, BrowserRouter } from 'react-router-dom';
 import { CartContext } from './cartcontext';
 import { Link } from 'react-router-dom';
@@ -6,8 +7,8 @@ import Checkout from '../components/checkout';
 import Main from './main.js';
 import Nav from './nav.js';
 import Hero from './hero.js';
-import CheckoutPage from './checkoutpage.js';
 import { items } from './shoeslist.js';;
+
 
 
 
@@ -15,9 +16,8 @@ import { items } from './shoeslist.js';;
 
 export const Shop = () => {
 
+  const { cartItems, setCartItems } = useCartContext();
 
-
-  const [cartItems, setCartItems] = useState([]);
   const [isModalOpen, setIsModalOpen] = useState(false);
 
   const [selectedFilters, setSelectedFilters] = useState([]);

@@ -1,10 +1,8 @@
-import React, { createContext, useState } from 'react';
+import React, { createContext, useContext, useState } from 'react';
 
-// Create the context
 const CartContext = createContext();
 
-// Create the context provider
-const CartProvider = ({ children }) => {
+export const CartProvider = ({ children }) => {
   const [cartItems, setCartItems] = useState([]);
 
   return (
@@ -14,4 +12,4 @@ const CartProvider = ({ children }) => {
   );
 };
 
-export { CartContext, CartProvider };
+export const useCartContext = () => useContext(CartContext);
