@@ -175,7 +175,7 @@ export const Shop = ({ totalPrice, setTotalPrice, }) => {
                             <Link to="/checkout" className=' checkout_btn bg-teal-main text-yellow-main w-96 text-center py-5 rounded-md'>Checkout!</Link>
                           </div>
                           <div className='total_price_container'>
-                            <p className='text-center mt-2'>Total Price:&#x24;{totalPrice?.toFixed(2)}</p>
+                            <p className='text-center mt-2'>Total Price:&#x24;{totalPrice.toFixed(2)}</p>
                           </div>
                         </li>
                       </ul>
