@@ -10,7 +10,13 @@ const App = () => {
   const [totalPrice, setTotalPrice] = useState(0);
 
   const handleRemoveFromCart = (itemId) => {
-    setCartItems((prevCartItems) => prevCartItems.filter((item) => item.id !== itemId));
+    setCartItems((prevCartItems) => {
+      const updatedCartItems = prevCartItems.map((item) =>
+        item.id === itemId ? { ...item, quantity: item.quantity - 1 } : item
+      );
+
+      return updatedCartItems.filter((item) => item.quantity > 0);
+    });
   };
 
   return (
