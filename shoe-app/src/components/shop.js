@@ -20,7 +20,7 @@ export const Shop = ({ totalPrice, setTotalPrice, }) => {
 
   const [selectedFilters, setSelectedFilters] = useState([]);
   const [filteredItems, setFilteredItems] = useState(items);
-  let filters = ["Nike", "Adidas", "New Balance", "Puma", "Black", "White", "Blue", "Orange",];
+  let filters = ["Nike", "Adidas", "New Balance", "Puma",];
 
 
 
@@ -115,7 +115,7 @@ export const Shop = ({ totalPrice, setTotalPrice, }) => {
       <div className='search_filter_wrapper'>
         <div className='search_filter_container flex flex-col w-full'>
 
-          <div className='buttons_container_search flex z-10 sticky top-0 flex-row justify-evenly gap-5 p-5  w-full  shadow-lg bg-white '>
+          <div className='buttons_container_search flex sticky z-10 top-0 flex-row justify-evenly gap-5 p-5  w-full  shadow-lg bg-white '>
 
             {filters.map((category, idx) => (
               <button onClick={() => handleFilterButtonClick(category)} className={`filter_button ${selectedFilters?.includes(category) ? "active" : ""}   text-teal-main rounded-md  w-full justify-evenly text-sm font-bold cursor-pointer gap-5 mt-1 px-2 py-5  `} key={`filters-${idx}`}>

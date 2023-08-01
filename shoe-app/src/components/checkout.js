@@ -44,8 +44,8 @@ const Checkout = () => {
     return (
       <section>
         <Nav />
-        <p>No items in the cart.</p>
-        <Link to="/">Back to Shop</Link>
+        <p className='text-center font-2xl'>No items in the cart.</p>
+        <Link className='text-center font-2xl' to="/">Back to Shop</Link>
       </section>
     );
   }
