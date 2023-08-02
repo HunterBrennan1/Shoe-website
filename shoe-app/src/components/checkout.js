@@ -45,7 +45,7 @@ const Checkout = () => {
       <section>
         <Nav />
         <p className='text-center font-2xl'>No items in the cart.</p>
-        <Link className='text-center font-2xl' to="/">Back to Shop</Link>
+        <Link className='text-center font-2xl bg-teal-main text-yellow-main p-5' to="/">Back to Shop</Link>
       </section>
     );
   }
