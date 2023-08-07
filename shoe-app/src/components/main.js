@@ -14,8 +14,8 @@ export const Main = () => {
 
         <div className="bg-hero-color w-full h-96 p-5 flex justify-center text-center border-0 border-teal-main ">
           <div>
-            <h2 className="w-96 text-center text-3xl mb-10">Why Choose Us?</h2>
-            <p className="w-96 text-lg leading-10">Here at our website, we pride ourselves on delivering excellence to our customers. With a strong commitment to quality, innovation, and customer satisfaction, we stand apart from the competition. Our shoes are designed to withstand the rigors of your active lifestyle while keeping you stylish and comfortable throughout your journey.</p>
+            <h2 className="w-96 text-teal-main text-center text-3xl mb-10">Why Choose Us?</h2>
+            <p className="w-96 text-teal-main text-lg leading-10">Here at our website, we pride ourselves on delivering excellence to our customers. With a strong commitment to quality, innovation, and customer satisfaction, we stand apart from the competition. Our shoes are designed to withstand the rigors of your active lifestyle while keeping you stylish and comfortable throughout your journey.</p>
           </div>
         </div>
 
