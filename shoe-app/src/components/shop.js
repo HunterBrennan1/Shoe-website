@@ -123,7 +123,7 @@ export const Shop = ({ totalPrice, setTotalPrice, }) => {
               </button>
             ))}
           </div>
-          <div className='item_container flex flex-wrap  gap-0 justify-center px-0 w-full mt-10 '>
+          <div id="shop" className='item_container flex flex-wrap  gap-0 justify-center px-0 w-full mt-10 '>
             {filteredItems.map((item, idx) => (
               <div key={`items-${idx}`} className="item  relative flex flex-col p-5 w-80 min-w-1/5 hover:shadow-lg">
 

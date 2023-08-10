@@ -25,7 +25,7 @@ export const Nav = () => {
             <ul class="hidden md:flex px-4 mx-auto font-semibold font-heading space-x-12">
               <li><a class="hover:text-gray-200 underline underline-offset-8 decoration-teal-main decoration-4" href="#">Home</a></li>
               <li><a class="hover:text-gray-200 underline underline-offset-8 decoration-yellow-main decoration-4" href="#">Catagory</a></li>
-              <li><a class="hover:text-gray-200 underline underline-offset-8 decoration-teal-main decoration-4" href="#">Collections</a></li>
+              <li><Link top="/shop" class="hover:text-gray-200 underline underline-offset-8 decoration-teal-main decoration-4">Collections</Link></li>
               <li><a class="hover:text-gray-200 underline underline-offset-8 decoration-yellow-main decoration-4" href="#">Contact Us</a></li>
             </ul>
 
