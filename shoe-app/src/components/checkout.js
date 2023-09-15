@@ -60,6 +60,7 @@ const Checkout = () => {
           <div className='flex flex-col justify-center'>
             <h2 className="text-2xl font-bold text-center pt-9 mb-10 text-teal-main">Checkout</h2>
             <Link className='text-center mb-10  rounded-md p-5 ' to="/">Back to Shop</Link>
+            <p className='text center font-xl text-teal-main'>Check out some of our top picks for the week!</p>
           </div>
           <div className='flex flex-row justify-between'>
             <ul className="checkout-list  flex flex-col w-1/2">
