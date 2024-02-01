@@ -5,6 +5,7 @@ import Checkout from '../components/checkout';
 import Main from './main.js';
 import Nav from './nav.js';
 import Hero from './hero.js';
+import Video from './video.js';
 import { items } from './shoeslist.js';;
 
 
@@ -109,6 +110,7 @@ export const Shop = ({ totalPrice, setTotalPrice, }) => {
 
       <Nav />
       <Hero />
+      {/* <Video /> */}
       <Main />
       <div>
       </div>
