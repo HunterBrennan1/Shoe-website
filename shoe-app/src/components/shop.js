@@ -6,6 +6,7 @@ import Main from './main.js';
 import Nav from './nav.js';
 import Hero from './hero.js';
 import Video from './video.js';
+import Footer from './footer.js';
 import { items } from './shoeslist.js';;
 
 
@@ -112,6 +113,7 @@ export const Shop = ({ totalPrice, setTotalPrice, }) => {
       <Hero />
       {/* <Video /> */}
       <Main />
+
       <div>
       </div>
       <div className='search_filter_wrapper'>
@@ -192,6 +194,7 @@ export const Shop = ({ totalPrice, setTotalPrice, }) => {
           </section>
         )}
       </div>
+      <Footer />
     </section >
 
   );
