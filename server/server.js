@@ -1,8 +1,15 @@
+require('dotenv').config()
+
 const express = require('express')
 const app = express()
 
-app.get("/api", (req, res) => {
-  res.json({ "users": ["userOne", "userTwo", "userThree"] })
-})
+app.use(express.json())
+app.use(express.static("shoe-app"))
 
-app.listen(5000, () => { console.log("server started on port 5000") })
+const stripe = require('stripe')(process.env.STRIPE_PRIVATE_KEY)
+
+const storeItems = new Map([[
+  1,
+]])
+
+app.listen(3000)
