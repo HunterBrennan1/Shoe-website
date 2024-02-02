@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { useCartContext } from './cartcontext';
 import Nav from './nav';
+import Footer from './footer';
 
 
 const Checkout = () => {
@@ -166,14 +167,14 @@ const Checkout = () => {
               </div>
             </div>
           </div>
-          <div className="total_price_container">
-            <p className="text-center mt-2">Total Price:&#x24;{totalPrice?.toFixed(2)}</p>
-          </div>
+
           <div>
           </div>
         </div>
       </div>
+      <Footer />
     </section>
+
   );
 };
 
